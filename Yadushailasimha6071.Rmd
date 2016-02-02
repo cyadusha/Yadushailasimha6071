@@ -1,0 +1,7 @@
+```{r}
+flights2008 <- read.csv(file = "flights2008.csv", head=TRUE, sep = ",")
+```
+
+```{r}
+subset(flights2008, Month = 1, ArrDelay = 1, DayofWeek = 6, DayofMonth = 13, Taxiin = 2, SecurityDelay = 0, select = c(FlightNum, TailNum, Origin, Dest, Distance), head = TRUE)
+```
