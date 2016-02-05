@@ -1,7 +1,8 @@
 ```{r}
-flights2008 <- read.csv(file = "flights2008.csv", head=TRUE, sep = ",")
+bridges <- read.table(file = url("http://archive.ics.uci.edu/ml/machine-learning-databases/bridges/bridges.data.version1"), head = FALSE, sep = ",")
+colnames(bridges) <- c("Identifier", "River", "Location", "Erected", "Purpose", "Length", "Lanes", "ClearG", "ThroughDeck", "Material", "Span", "RelL", "Type")
 ```
 
 ```{r}
-subset(flights2008, Month = 1, ArrDelay = 1, DayofWeek = 6, DayofMonth = 13, Taxiin = 2, SecurityDelay = 0, select = c(FlightNum, TailNum, Origin, Dest, Distance), head = TRUE)
+subset(bridges, ThroughDeck != "?", Type = "SIMPLE-T", select = c(Erected, Purpose, Material))
 ```
